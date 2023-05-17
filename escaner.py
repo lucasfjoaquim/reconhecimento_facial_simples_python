@@ -1,11 +1,11 @@
 from deepface import DeepFace
 
-# Define the paths to the two known images and the unknown image
+# Define o caminho das duas imagens de base (pessoa1.jpg e pessoa2.jpg) e a imagen desconhecida que pode pertencer a uma das pessoas.
 image_pessoa1 = "images/pessoa1.jpg"
 image_pessoa2 = "images/pessoa2.jpg"
 image_desconhecida = "images/terceira_pessoa.jpg"
 
-# Perform face recognition using DeepFace
+# realiza o reconhecimento facial com deepface
 resultados = DeepFace.verify(image_pessoa1, image_desconhecida, model_name='Facenet')
 is_pessoa1 = resultados["verified"]
 
@@ -15,7 +15,7 @@ if not is_pessoa1:
 else:
     is_pessoa2 = False
 
-# Check the results and print the corresponding message
+# analisa os resultados
 if is_pessoa1:
     print("A terceira foto pertence à pessoa 1.")
 elif is_pessoa2:
